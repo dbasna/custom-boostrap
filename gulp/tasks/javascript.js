@@ -5,7 +5,7 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
-var gutil = require('gulp-util');
+var handleError = require('../lib/handleError')
 
 // js config
 var js = {
@@ -26,6 +26,7 @@ gulp.task('javascript:vendor', function() {
     });
 
     return b.bundle()
+    .on('error', handleError)
     .pipe(source(js.vendor_source))
     .pipe(buffer())
     .pipe(uglify())
@@ -43,6 +44,7 @@ gulp.task('javascript:app', function() {
     });
 
     return b.bundle()
+    .on('error', handleError)
     .pipe(source(js.source))
     .pipe(buffer())
     .pipe(uglify())

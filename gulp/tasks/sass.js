@@ -2,6 +2,7 @@ var config = require('../config');
 var gulp = require('gulp');
 var autoprefixer = require('gulp-autoprefixer');
 var sass = require('gulp-sass');
+var handleError = require('../lib/handleError')
 
 // scss config
 var scss = {
@@ -19,6 +20,7 @@ var scss = {
 gulp.task('sass', function() {
     gulp.src(scss.in)
     .pipe(sass(scss.sassOpts))
+    .on('error', handleError)
     .pipe(autoprefixer())
     .pipe(gulp.dest(scss.out));
 });
