@@ -1,0 +1,28 @@
+{
+    "config": {
+        "source": "./src/",
+        "dest": "./dist/"
+    },
+    "bootstrapSass": {
+        "in": "./node_modules/bootstrap-sass/",
+        "fonts": "assets/fonts/**/*"
+    },
+    "fonts": {
+        "in": "fonts/*",
+        "out": "fonts/"
+    },
+    "scss": {
+        "in": "scss/main.scss",
+        "out": "css/",
+        "watch": "scss/**/*"
+    },
+    "js": {
+        "in": "js/app.js",
+        "out": "js/",
+        "source": "app.min.js",
+        "vendor_in": "js/bundle.js",
+        "vendor_out": "js/",
+        "vendor_source": "bundle.min.js",
+        "watch": "js/**/*"
+    }
+}
